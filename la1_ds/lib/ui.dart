@@ -17,6 +17,7 @@ class _UiState extends State<Ui> {
   final x0Controller = TextEditingController(text: "1");
   final amountController = TextEditingController(text: "100000");
   final _scrollController = ScrollController();
+  bool isChecked = false;
   String period = '';
   Generator generator = new Generator();
   @override
@@ -175,6 +176,20 @@ class _UiState extends State<Ui> {
           ),
         ),
         Expanded(
+            child: Column(
+          children: [
+            Text("Save data to file?"),
+            Checkbox(
+              value: isChecked,
+              onChanged: (newValue) {
+                setState(() {
+                  isChecked = !isChecked;
+                });
+              },
+            ),
+          ],
+        )),
+        Expanded(
           flex: 1,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
@@ -196,7 +211,8 @@ class _UiState extends State<Ui> {
           cController.text,
           mController.text,
           amountController.text,
-          x0Controller.text);
+          x0Controller.text,
+          isChecked);
       setState(() {
         resultController.text = a.periodArray.toString();
         period = a.period.toString();
