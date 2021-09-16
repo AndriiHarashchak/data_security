@@ -2,8 +2,7 @@ import 'dart:io';
 import 'package:math_expressions/math_expressions.dart';
 
 class Generator {
-  Future<Data> parceAndGenerate(String a, String c, String m, String amount,
-      String x0, bool saveToFile) async {
+  Future<Data> parceAndGenerate(String a, String c, String m, String amount, String x0, bool saveToFile) async {
     //
     try {
       Parser p = new Parser();
@@ -42,8 +41,7 @@ class Generator {
     //return 0;
   }
 
-  Future<Data> generate3(BigInt a, BigInt c, BigInt m, BigInt amount, BigInt x0,
-      bool saveTofile) async {
+  Future<Data> generate3(BigInt a, BigInt c, BigInt m, BigInt amount, BigInt x0, bool saveTofile) async {
     BigInt xn = x0;
     BigInt xn1 = BigInt.from(0);
     int period = 1;
@@ -60,7 +58,7 @@ class Generator {
         await file.writeAsString("");
       }
       var stream = file.openWrite(mode: FileMode.append);
-      while (!isFound) {
+      while (!isFound && period < amount.toInt()) {
         xn1 = (a * xn + c) % m;
         if (xn1 == x0 || xn1 == xn) {
           isFound = true;
@@ -101,8 +99,7 @@ class Generator {
     return new Data(generatedOutput, period);
   }
 
-  List<BigInt> generateOnlyForUiOutput(
-      BigInt a, BigInt c, BigInt m, BigInt x0, int count) {
+  List<BigInt> generateOnlyForUiOutput(BigInt a, BigInt c, BigInt m, BigInt x0, int count) {
     BigInt xn = x0;
     BigInt xn1 = BigInt.from(0);
     bool isFound = false;

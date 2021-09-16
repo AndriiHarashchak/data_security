@@ -9,9 +9,6 @@
 .history
 .svn/
 
-*.docx
-*.pdf
-
 # IntelliJ related
 *.iml
 *.ipr
