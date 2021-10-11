@@ -28,20 +28,6 @@ namespace lab3_ds_cs
         {
             InitializeComponent();
         }
-
-        private void ButtonEncrypt_Click(object sender, RoutedEventArgs e)
-        {
-            var data = UTF8Encoding.UTF8.GetBytes(InputText.Text);
-            string key = Key.Text;
-            var RC5 = new RC5(8);
-            var keyEncoded = UTF8Encoding.UTF8.GetBytes(key);
-            var md5 = MD5.Create();
-            var hashedKey  = md5.ComputeHash(keyEncoded);
-            byte[] keyArr = new byte[8];
-            Array.Copy(hashedKey, 0, keyArr, 0, 8);
-
-            byte [] encryptedData = RC5.encryptECB(data, keyArr);
-        }
         byte[] encrypt(string filepath)
         {
             string key = Key.Text;
