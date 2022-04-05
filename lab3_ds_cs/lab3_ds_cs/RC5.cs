@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab3_ds_cs
 {
@@ -10,7 +8,7 @@ namespace lab3_ds_cs
     {
         Encrypt, Decrypt
     }
-    internal class RC5
+    public class RC5
     {
         public int rounds { get; private set; }
         public int wordSize { get; private set; }
@@ -98,12 +96,6 @@ namespace lab3_ds_cs
                 var result = encryptECB(cn, s);
 
                 Array.Copy(result, 0, resultArray, i + bytesPerBlock, result.Length);
-                //EncipherECB(
-                //    inBytes: cn,
-                //    outBytes: encodedFileContent,
-                //    inStart: 0,
-                //    outStart: i + bytesPerBlock,
-                //    s: s);
 
                 Array.Copy(resultArray, i + bytesPerBlock, Pprev, 0, cn.Length);
             }
@@ -118,10 +110,6 @@ namespace lab3_ds_cs
             //var cnPrev = new Byte[bytesPerBlock];
             var decodedFileContent = new Byte[data.Length - bytesPerBlock];
             var cnPrev = decryptECB(data, s);
-            //Array.Copy(blockk, 0, cnPrev,0, blockk.Length);
-            //var result = decryptECB(cnPrev, s);
-            //Array.Copy(result, 0, cnPrev, 0, result.Length);
-
 
             for (int i = bytesPerBlock; i < data.Length; i += bytesPerBlock)
             {
@@ -129,23 +117,10 @@ namespace lab3_ds_cs
                 Array.Copy(data, i, cn, 0, cn.Length);
                 
                 var block = decryptECB(cn, s);
-                //
-                //DecipherECB(
-                //    inBuf: cn,
-                //    outBuf: decodedFileContent,
-                //    inStart: 0,
-                //    outStart: i - bytesPerBlock,
-                //    s: s);
 
                 block = XOR(block, cnPrev);
                 
                 Array.Copy(block, 0, decodedFileContent, i-bytesPerBlock, block.Length);
-                //decodedFileContent.XorWith(
-                //    xorArray: cnPrev,
-                //    inStartIndex: i - bytesPerBlock,
-                //    xorStartIndex: 0,
-                //    length: cn.Length);
-
                 Array.Copy(data, i, cnPrev, 0, cnPrev.Length);
             }
             byte[] decodedWithoutPadding = new byte[] { };
@@ -159,42 +134,7 @@ namespace lab3_ds_cs
 
             return decodedWithoutPadding;
         }
-        /*public byte[] encrypt_decrypt(byte[] data, byte[] key, OperationType operation)
-        {
-            List<byte> endecryptedData = new List<byte>();
-
-            int lenght = data.Length;
-            //int processedBytes = 0;
-            for (int k = 0; k < lenght; k += 4)
-            {
-                int end = k + 4;
-                var block = new byte[4];
-                if (end >= lenght)
-                {
-                    end = lenght - 1;
-                    //block.setAll(0, inputData.sublist(k));
-                    Array.Copy(data, block, k);
-                }
-                else
-                {
-                    //block = Uint8List.sublistView(inputData, k, end);
-                    Array.Copy(data, k, block, 0,end-k);
-                }
-                if (operation == OperationType.Encrypt)
-                {
-                    var endecryptedBlock = encryptECB(block, key);
-                    //endecryptedData.AddAll(endecryptedBlock);
-                    endecryptedData.AddRange(endecryptedBlock);
-                }
-                else
-                {
-                    var endecryptedBlock = decryptECB(block, key);
-                    endecryptedData.AddRange(endecryptedBlock);
-                }
-                //processedBytes += end - k;
-            }
-            return endecryptedData.ToArray();
-        } */
+       
         public byte[] XOR(byte[] left, byte[] right)
         {
             for (int i = 0; i < left.Length; ++i)
@@ -261,7 +201,10 @@ namespace lab3_ds_cs
         {
             var bytesInBlock = wordSize*2 / 8;
             var paddingLength =  bytesInBlock - data.Length % (bytesInBlock);
-
+            if (paddingLength < 0)
+            {
+                paddingLength = bytesInBlock;
+            }
             var padding = new byte[paddingLength];
 
             for (int i = 0; i < padding.Length; ++i)

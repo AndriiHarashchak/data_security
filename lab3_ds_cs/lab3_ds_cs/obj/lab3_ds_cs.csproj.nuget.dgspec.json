@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj": {}
+    "D:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj": {}
   },
   "projects": {
-    "E:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj": {
+    "D:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj",
+        "projectUniqueName": "D:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj",
         "projectName": "lab3_ds_cs",
-        "projectPath": "E:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj",
+        "projectPath": "D:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\lab3_ds_cs.csproj",
         "packagesPath": "C:\\Users\\andri\\.nuget\\packages\\",
-        "outputPath": "E:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\obj\\",
+        "outputPath": "D:\\OneDrive\\test\\Curs4\\Data security\\lab3_ds_cs\\lab3_ds_cs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.2.21505.57\\RuntimeIdentifierGraph.json"
         }
       }
     }

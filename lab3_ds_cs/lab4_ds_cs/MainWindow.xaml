@@ -1,0 +1,40 @@
+﻿<Window x:Class="lab4_ds_cs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab4_ds_cs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.6*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="0">
+            <Button x:Name="FilePick" FontWeight="Bold" FontSize="12" Margin="10,10" Click="FilePick_Click">Select file</Button>
+            <Label x:Name="LabelFilename" Content="" FontWeight="Bold" FontSize="14"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="1">
+            <Label Content="Key" FontWeight="Bold" FontSize="14" HorizontalAlignment="Center" Margin="10,10"></Label>
+            <TextBox x:Name="Key" FontWeight="Bold" FontSize="14" Width="300" Margin="10,10" HorizontalContentAlignment="Center"></TextBox>
+            
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10,0" Grid.Row="2">
+            <Button x:Name="EncryptRC5" FontWeight="Bold" FontSize="12" Width="auto" Margin="10,10" Click="EncryptRC5_Click">Encrypt RC5</Button>
+            <Button x:Name="EncryptRSA" FontWeight="Bold" FontSize="12" Width="auto" Margin="10,10" Click="EncryptRSA_Click">Encrypt RSA</Button>
+            <Button x:Name="DencryptRC5" FontWeight="Bold" FontSize="12" Width="auto" Margin="10,10" Click="DencryptRC5_Click">Decrypt RC5</Button>
+            <Button x:Name="DencryptRSA" FontWeight="Bold" FontSize="12" Width="auto" Margin="10,10" Click="DencryptRSA_Click">Decrypt RSA</Button>
+        </StackPanel>
+        <StackPanel  Grid.Row="3" Margin="10,0">
+            <Label Content="Log"></Label>
+            <ScrollViewer>
+                <TextBlock x:Name="Output" Background="AliceBlue" Height="200" Margin="10,10"></TextBlock>
+            </ScrollViewer>
+            
+        </StackPanel>
+        
+    </Grid>
+</Window>

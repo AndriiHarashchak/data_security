@@ -1,0 +1,49 @@
+﻿<Window x:Class="lab5_ds_cs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab5_ds_cs"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,10">
+                <Label Content="Text to generate dsa"></Label>
+                <TextBox VerticalContentAlignment="Center" Width="400" x:Name="dsa_text"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,10,10, 0">
+                <Button x:Name="DSAText" Margin="0,0 10,0" Click="EDSForText_Click">Generate EDS For Text</Button>
+                <Button x:Name="DSAFile" Margin="10,0" Click="GenerateEDSForFile_Click">Generate EDS For File</Button>
+                <Button x:Name="DSAExport" Margin="10,0" Click="EDSvalueExport_Click">Export calculated EDS</Button>
+                <Button x:Name="DSAParamsImport" Click="DSAParamsImport_Click" Margin="10,0">Import DSA params </Button>
+                <Button x:Name="DSAParamsExport" Click="DSAParamsExport_Click" Margin="10,0">Export DSA params</Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,10,0,10">
+                <Label Content="Generated EDS: "></Label>
+                <TextBox VerticalContentAlignment="Center" Width="500" x:Name="DSA" IsReadOnly="True" FontSize="10"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel  Orientation="Horizontal">
+            <Button x:Name="EDSFile" Click="EDSFile_Click" Margin="10,10">EDS file</Button>
+            <Button x:Name="FileToVerifyEDS" Click="FileToGenerateEDS_Click" Margin="10,10">File to verify EDS</Button>
+            <Button x:Name="VerifyEDS" Click="CompareEDS_Click" Margin="10,10">Verify EDS</Button>
+        </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,10">
+                <Label Width="100">EDS: </Label>
+                <TextBox IsReadOnly="True" Width="500" x:Name="EDSFromFileValue" FontSize="10"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10,0,10,10">
+                <Label Width="100">File to verify EDS</Label>
+                <TextBox IsReadOnly="True" Width="500" x:Name="FilePath"></TextBox>
+            </StackPanel>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>
